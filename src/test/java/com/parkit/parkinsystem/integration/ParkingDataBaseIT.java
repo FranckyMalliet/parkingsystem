@@ -1,4 +1,4 @@
-package com.parkit.parkingsystem;
+package com.parkit.parkinsystem.integration;
 
 import com.parkit.parkingsystem.dao.ParkingSpotDAO;
 import com.parkit.parkingsystem.dao.TicketDAO;
@@ -20,7 +20,7 @@ import java.util.Date;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ParkingDataBaseTest {
+public class ParkingDataBaseIT {
 
     private static DataBaseTestConfig dataBaseTestConfig = new DataBaseTestConfig();
     private static ParkingSpotDAO parkingSpotDAO;
@@ -50,7 +50,7 @@ public class ParkingDataBaseTest {
     }
 
     @Test
-    public void testParkingACar(){
+    public void ParkingACar(){
         //GIVEN
         Ticket ticket;
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
@@ -66,12 +66,10 @@ public class ParkingDataBaseTest {
         //THEN
         Assertions.assertNotNull(ticket);
         Assertions.assertFalse(parkingSpot.isAvailable());
-
-        //TODO: check that a ticket is actualy saved in DB and Parking table is updated with availability
     }
 
     @Test
-    public void testParkingLotExitAfterOneHOur(){
+    public void ParkingLotExitAfterOneHOur(){
         //GIVEN
         Ticket ticket;
 
@@ -95,6 +93,5 @@ public class ParkingDataBaseTest {
         //THEN
         Assertions.assertNotNull(checkOutTime);
         Assertions.assertTrue(farePrice > 0);
-        //TODO: check that the fare generated and out time are populated correctly in the database
     }
 }

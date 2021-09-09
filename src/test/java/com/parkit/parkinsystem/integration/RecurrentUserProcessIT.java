@@ -1,4 +1,4 @@
-package com.parkit.parkingsystem;
+package com.parkit.parkinsystem.integration;
 
 import com.parkit.parkingsystem.constants.ParkingType;
 import com.parkit.parkingsystem.model.ParkingSpot;
@@ -14,7 +14,7 @@ import java.util.Date;
 
 
 @ExtendWith(MockitoExtension.class)
-public class RecurrentUserProcessTest {
+public class RecurrentUserProcessIT {
 
     @Mock
     private static FareCalculatorService fareCalculatorService;
